@@ -11,6 +11,7 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
+    try {
         int[] array1 = generateArr();
         int[] array2 = generateArr();
         int[] result = modifyArray(array1, array2);
@@ -18,6 +19,11 @@ public class Main {
         for (int i = 0; i < result.length; i++) {
             System.out.print(result[i] + " ");
         }
+    }
+    catch (CustomArraySizeException e) {
+        System.out.println(e.getMessage());
+        System.out.printf("Длина первого массива - %d\nДлина второго массива - %d\n", e.getLength1(), e.getLength2());
+    }
     }
 
     /**
